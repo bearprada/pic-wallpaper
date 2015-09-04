@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import com.demo.cblue.R;
 import com.demo.cblue.ViewHelper;
 import com.demo.cblue.model.WebPhoto;
-import com.demo.cblue.view.CollageAdapter.ToiletViewHolder;
+import com.demo.cblue.view.CollageAdapter.CollageViewHolder;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -28,13 +28,13 @@ import butterknife.ButterKnife;
 /**
  * Created by wish8 on 8/26/15.
  */
-public class CollageAdapter extends RecyclerView.Adapter<ToiletViewHolder> {
+public class CollageAdapter extends RecyclerView.Adapter<CollageViewHolder> {
 
-    public static class ToiletViewHolder extends RecyclerView.ViewHolder {
+    public static class CollageViewHolder extends RecyclerView.ViewHolder {
 
         @Bind(R.id.collage_image_view) ImageView imageView;
 
-        public ToiletViewHolder(View view) {
+        public CollageViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
         }
@@ -48,13 +48,13 @@ public class CollageAdapter extends RecyclerView.Adapter<ToiletViewHolder> {
     }
 
     @Override
-    public ToiletViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_toilet, viewGroup, false);
-        return new ToiletViewHolder(view);
+    public CollageViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_collage, viewGroup, false);
+        return new CollageViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ToiletViewHolder vh, int i) {
+    public void onBindViewHolder(CollageViewHolder vh, int i) {
         final WebPhoto photo = photos.get(i);
         DrawableTypeRequest<String> thumbReq = Glide.with(fragment).load(photo.getThumbnailImageUrl());
         Glide.with(fragment).load(photo.getMediumImageUrl()).thumbnail(thumbReq).into(vh.imageView);

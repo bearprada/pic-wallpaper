@@ -56,13 +56,13 @@ public class MainActivityFragment extends BaseFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         progressBar.setVisibility(View.VISIBLE);
-        bind(fetchNearestToilet())
+        bind(fetchCollages())
                 .finallyDo(() -> progressBar.setVisibility(View.GONE))
                 .subscribe(adapter::reset,
                         throwable -> ViewHelper.showError(getActivity(), throwable));
     }
 
-    private Observable<List<WebPhoto>> fetchNearestToilet() {
+    private Observable<List<WebPhoto>> fetchCollages() {
         return apiService.listFeaturedCollages(20, 0)
                 .flatMap(response -> Observable.from(response.getCollages().getPhotos()))
                 .toSortedList(this::compare);
