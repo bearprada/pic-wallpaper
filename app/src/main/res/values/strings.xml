@@ -1,0 +1,7 @@
+<resources>
+    <string name="system_report_title">系統回報</string>
+    <string name="continue_title">繼續</string>
+    <string name="app_name">PicWallpaper</string>
+    <string name="set_wallpaper_successful">Save wallpaper successful</string>
+    <string name="title_activity_set_wall_paper">Set Wallpaper</string>
+</resources>
